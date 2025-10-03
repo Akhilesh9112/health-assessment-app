@@ -1,6 +1,7 @@
 
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { useState } from 'react';
 
 import CalmNavbar from "./component/CalmNavbar";
 import CalmFooter from "./component/pages/footer";
@@ -19,11 +20,17 @@ import BookingPage from "./component/pages/booking";
 import AdminAvailabilityForm from "./component/pages/admin";
 import AdminLoginWithSignup from "./component/pages/adminlogin";
 import AdminAvailability from "./component/pages/adminavaibility";
+import ModuleAccordion from "./component/pages/modules";
+import Games from "./component/pages/games";
+import Hobbies from "./component/pages/hobbies";
+
+
 
 // Use the correct relative path
 
 
 function App() {
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   return (
     <>
       {/* Navbar always visible */}
@@ -44,11 +51,16 @@ function App() {
           <Route path="/welcome" element={<WelcomePage/>} />
           <Route path="/booking" element={<BookingPage/>} />
           <Route path="/adminlogin" element={<AdminLoginWithSignup/>} />
+          <Route path="/modules" element={<ModuleAccordion/>} />
+          <Route path="/games" element={<Games/>} />
+          <Route path="/hobbies" element={<Hobbies/>} />
            
            <Route path="/admin" element={<AdminAvailability />} />
 
+
         {/* Add more routes here if needed */}
       </Routes>
+      
 
       {/* Footer always visible */}
       <CalmFooter />
